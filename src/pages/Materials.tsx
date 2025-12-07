@@ -12,30 +12,25 @@ export default function Materials() {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState<SortOption>('newest');
 
-  // 获取所有可用的标签
   const availableTags = useMemo(() => {
     const tags = new Set<string>();
     materials.forEach(m => m.tags.forEach(tag => tags.add(tag)));
     return Array.from(tags).sort();
   }, []);
 
-  // 筛选和排序材料
   const filteredMaterials = useMemo(() => {
     let filtered = materials;
 
-    // 按分类筛选
     if (selectedCategories.length > 0) {
       filtered = filtered.filter(m => selectedCategories.includes(m.category));
     }
 
-    // 按标签筛选
     if (selectedTags.length > 0) {
       filtered = filtered.filter(m => 
         selectedTags.some(tag => m.tags.includes(tag))
       );
     }
 
-    // 排序
     const sorted = [...filtered].sort((a, b) => {
       switch (sortBy) {
         case 'name':
@@ -84,10 +79,10 @@ export default function Materials() {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            为你的项目挑选合适材料
+            あなたのプロジェクトに最適な材料を
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            从验证到量产，材料库全覆盖。关键指标对比，一目了然。
+            プロトタイピングから量産まで、3Dプリント材料を比較・選定できます
           </p>
         </div>
 
@@ -109,7 +104,7 @@ export default function Materials() {
           <div className="lg:col-span-3">
             <div className="flex items-center justify-between mb-6">
               <p className="text-sm text-muted-foreground">
-                共 {filteredMaterials.length} 个材料
+                {filteredMaterials.length}件の材料
               </p>
               <SortMenu value={sortBy} onChange={setSortBy} />
             </div>
@@ -117,8 +112,8 @@ export default function Materials() {
             {filteredMaterials.length === 0 ? (
               <EmptyState
                 icon={<Search className="h-12 w-12 text-muted-foreground" />}
-                title="未找到匹配的材料"
-                description="尝试调整筛选条件或清空筛选"
+                title="材料が見つかりません"
+                description="フィルターを変更してお試しください"
               />
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">

@@ -24,12 +24,23 @@ export function formatSpec(key: string, value: number | string | undefined): str
 
 export function getSpecLabel(key: string): string {
   const labels: Record<string, string> = {
-    tensileStrengthMPa: '拉伸强度',
-    tensileModulusGPa: '拉伸模量',
-    elongationAtBreakPct: '断裂伸长率',
-    hdtAt0_45MPaC: '热变形温度',
+    tensileStrengthMPa: '引張強度',
+    tensileModulusGPa: '引張弾性率',
+    elongationAtBreakPct: '破断伸び',
+    hdtAt0_45MPaC: '熱変形温度',
     densityGPerCm3: '密度',
-    color: '颜色'
+    color: 'カラー'
   };
   return labels[key] || key;
+}
+
+export function getCategoryLabel(category: string): string {
+  const labels: Record<string, string> = {
+    Engineering: 'エンジニアリング',
+    Dental: '歯科用',
+    General: '汎用',
+    SLS: 'SLS',
+    SLA: 'SLA'
+  };
+  return labels[category] || category;
 }

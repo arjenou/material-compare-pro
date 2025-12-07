@@ -7,7 +7,7 @@ export function Navbar() {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <NavLink to="/" className="flex items-center gap-2 font-semibold text-lg hover:text-primary transition-colors">
           <Layers className="h-6 w-6" />
-          <span>材料库</span>
+          <span>3Dマテリアルラボ</span>
         </NavLink>
         
         <div className="flex items-center gap-6">
@@ -16,14 +16,14 @@ export function Navbar() {
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             activeClassName="text-foreground"
           >
-            所有材料
+            すべての材料
           </NavLink>
           <NavLink 
             to="/compare" 
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             activeClassName="text-foreground"
           >
-            对比材料
+            比較する
           </NavLink>
         </div>
       </div>
