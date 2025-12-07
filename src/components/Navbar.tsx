@@ -7,7 +7,7 @@ export function Navbar() {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <NavLink to="/" className="flex items-center gap-2 font-semibold text-lg hover:text-primary transition-colors">
           <Layers className="h-6 w-6" />
-          <span>3Dマテリアルラボ</span>
+          <span>3D printer</span>
         </NavLink>
         
         <div className="flex items-center gap-6">
